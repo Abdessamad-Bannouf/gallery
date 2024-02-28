@@ -1,0 +1,19 @@
+img {
+    opacity: 0.5;
+  }
+  
+  img:hover {
+    opacity: 1.0;
+  }
+
+  div.card {
+    opacity: 0.9;
+  }
+
+  div {
+    color: white !important;
+}
+
+.test {
+  color: red;
+}
