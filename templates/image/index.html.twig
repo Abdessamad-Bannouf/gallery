@@ -2,36 +2,90 @@
 
 {% block title %}Images{% endblock %}
 
+{% block stylesheets %} 
+    <link href="/css/card.css" rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+    </script>
+{% endblock %}
+
 {% block body %}
     <h1>Page d'accueil d'images</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-8 mt-5">
+        
+                {% if image.name is empty  %}
+                <div id="carouselExampleControls" class="carousel slide w-75" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                                <img class="d-block w-100" src="{{ asset('uploads/pictures/no-img.jpeg') }}" alt="no image">
+                        </div>
+                    </div>
+                    <a style="color:red" class="carousel-control-prev test" href="{{ url('app_single_image', {'page': previous})  }}" role="button" data-slide="prev" onclick="prev()">
+                        <span class="carousel-control-prev-icon test" aria-hidden="true"></span>
+                        <span class="sr-only test">Previous</span>
+                    </a>
+                    <a class="carousel-control-next test" href="{{ url('app_single_image', {'page': next}) }}" role="button" data-slide="next" onclick="next()">
+                        <span class="carousel-control-next-icon test" aria-hidden="true"></span>
+                        <span class="sr-only test">Next</span>
+                    </a>
+                </div>
+                {% else %}
+                <div id="carouselExampleControls" class="carousel slide w-75" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="{{ asset('uploads/pictures/' ~ image.name) }}" alt="No image" alt="No image">              
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="{{ url('app_single_image', {'page': previous})  }}" role="button" data-slide="prev" onclick="prev()">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="{{ url('app_single_image', {'page': next}) }}" role="button" data-slide="next" onclick="next()">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Date</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for image in images %}
-            <tr>
-                <td>{{ image.id }}</td>
-                <td><img src="https://source.unsplash.com/random/200x200?sig=1"/></td>
-                <td>{{ image.date ? image.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <button class="btn btn-info"><a href="{{ path('app_image_show', {'id': image.id}) }}">Montrer</a></button>
-                    <button class="btn btn-warning"><a href="{{ path('app_image_edit', {'id': image.id}) }}">Editer</a></button>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">Aucun résultat trouvé</td>
-            </tr>
-        {% endfor %}
+            <div class="col-4 mt-5">
+                <div class="card-columns">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:black">{{ image.name }}</h5>
+                            <p class="card-text">Le nom de l'auteur</p>
+                            <p class="card-text"><small class="text-muted">{{ image.date|date('Y-m-d H:i:s') }}</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--<table class="table">
+        <div class="card-group">
+        {# for image in images #}
+            
+            <!--<div class="card">
+                <div class="card-body bg-transparent">
+                    <img class="card-img-top" src="https://source.unsplash.com/random/200x200?sig=1" alt="Card image cap">
+                    <p class="card-text">{# image.date ? image.date|date('Y-m-d H:i:s') : '' #}</p>
+                    <p class="card-text">
+                        <button class="btn btn-info mx-5"><a href="{# path('app_image_show', {'id': image.id}) #}">Montrer</a></button>
+                        <button class="btn btn-warning mx-5"><a href="{# path('app_image_edit', {'id': image.id}) #}">Editer</a></button>
+                    </p>
+                </div>
+            </div>!-->
+            {# else #}
+                <!--<tr>
+                    <td colspan="4">Aucun résultat trouvé</td>
+                </tr>!-->
+            {# endfor #}
+        <!--</div>
         </tbody>
-    </table>
+    </table>!-->
 
     <a href="{{ path('app_image_new') }}">Créer une nouvelle image</a>
 {% endblock %}

@@ -15,7 +15,7 @@ class ImageFixtures extends Fixture
         $faker = Faker\Factory::create('fr_FR');
         // on crée 4 images avec noms et dates "aléatoires" en français
         $images = Array();
-        for ($i = 0; $i < 4; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $images[$i] = new Image();
             $images[$i]->setName($faker->imageUrl($width = 640, $height = 480));
             $images[$i]->setDate($faker->dateTimeBetween('2021-01-01', 'now'));
