@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-8 mt-5">
         
-                {% if image.name is empty  %}
+                {% if image.name is empty or image.name is not defined %}
                 <div id="carouselExampleControls" class="carousel slide w-75" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
