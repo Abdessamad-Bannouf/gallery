@@ -84,11 +84,11 @@ class ImageController extends AbstractController
         ]);
     }
 
-    #[Route('/', name: 'app_image_index', methods: ['GET'])]
+    #[Route('/home', name: 'app_image_index', methods: ['GET'])]
     public function showAll(Image $image = null, ImageRepository $imageRepository): Response
     {
-        return $this->render('image/index.html.twig', [
-            'images' => $imageRepository->findAll(),
+        return $this->render('image/home/test.html.twig', [
+            //'images' => $imageRepository->findAll(),
         ]);
     }
 

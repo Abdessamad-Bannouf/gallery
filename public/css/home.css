@@ -1,0 +1,12 @@
+:root {
+    --cf-marg-top: 100px;
+    --cf-marg-left: 0px;
+}
+
+.space-top {
+    margin-top: var(--cf-marg-top);
+}
+
+div + img {
+    height: 300px;
+}
