@@ -9,3 +9,7 @@
 a {
     color: white;
 }
+
+body {
+    background-image: url("../uploads/pictures/background.jpg");
+}

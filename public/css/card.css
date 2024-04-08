@@ -1,7 +1,7 @@
 img {
     opacity: 0.5;
   }
-  
+
   img:hover {
     opacity: 1.0;
   }
@@ -10,10 +10,14 @@ img {
     opacity: 0.9;
   }
 
-  div {
-    color: white !important;
+.container .row .col-4 .card-columns .card .card-body .card-title,p,ul{
+  color: black;
 }
 
-.test {
-  color: red;
+.container .row .col-4 .card-columns .card .card-body li,span {
+  text-indent: -4px;
+}
+
+.container .row .col-8 .carousel span {
+  color:red;
 }
