@@ -77,7 +77,7 @@ class ImageController extends AbstractController
         $session->set('page', $image->getId());
         $image = $imageRepository->findOneBy(['id' => $session->get('page')]);
         
-        return $this->render('image/index.html.twig', [
+        return $this->render('image/show.html.twig', [
             'image' => $image,
             'previous' => $image->getId()-1,
             'next' => $image->getId()+1
@@ -87,7 +87,7 @@ class ImageController extends AbstractController
     #[Route('/home', name: 'app_image_index', methods: ['GET'])]
     public function showAll(Image $image = null, ImageRepository $imageRepository): Response
     {
-        return $this->render('image/home/test.html.twig', [
+        return $this->render('image/home/index.html.twig', [
             //'images' => $imageRepository->findAll(),
         ]);
     }
