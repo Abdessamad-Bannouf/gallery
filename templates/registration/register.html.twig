@@ -10,7 +10,7 @@
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
-    <div class="container">
+    <div class="container mt-5">
         <section class="vh-100">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -27,7 +27,7 @@
                                         {{ form_start(registrationForm) }}
                                             <div class="d-flex align-items-center mb-3 pb-1">
                                                 <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                                                <span class="h1 fw-bold mb-0">Logo</span>
+                                                <span class="h1 fw-bold mb-0">Inscription</span>
                                             </div>
 
                                             <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Inscris-toi dès maintenant !</h5>
@@ -51,7 +51,7 @@
                                                 <button type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">S'inscrire !</button>
                                             </div>
 
-                                            <a class="small text-muted" href="#!">Mot de passe oublié ?</a>
+                                            <a class="small text-muted" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ?</a>
                                             <p class="mb-5 pb-lg-2" style="color: #393f81;">As-tu un compte ? <a href="{{ path('app_login') }}"
                                                                                                                       style="color: #393f81;">Login</a></p>
                                             <a href="#!" class="small text-muted">Termes d'utilisations.</a>
