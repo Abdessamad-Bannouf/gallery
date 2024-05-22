@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}E-mail envoyé{% endblock %}
+
+{% block stylesheets %}
+    <link href="/css/check-email.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="check-email-block">
+        <p>
+            Si il existe un compte correspondant à ton adresse email, un email vient d'être envoyé contenant un lien que tu peux utiliser pour réinitialiser ton mot de passe.
+            Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+        </p>
+        <p>Si tu ne reçois pas d'e-mail, Veux-tu vérifier ton dossier spam ou <a href="{{ path('app_forgot_password_request') }}">réessayer</a>.</p>
+    </div>
+{% endblock %}

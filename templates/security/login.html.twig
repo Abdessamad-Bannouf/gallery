@@ -35,7 +35,7 @@
 
                                             <div class="d-flex align-items-center mb-3 pb-1">
                                                 <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                                                <span class="h1 fw-bold mb-0">Logo</span>
+                                                <span class="h1 fw-bold mb-0">Login</span>
                                             </div>
 
                                             <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connecte-toi à ton compte !</h5>
@@ -63,7 +63,7 @@
                                                 <button type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">Se connecter</button>
                                             </div>
 
-                                            <a class="small text-muted" href="#!">Forgot password?</a>
+                                            <a class="small text-muted" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a>
                                             <p class="mb-5 pb-lg-2" style="color: #393f81;">Tu n'as pas compte ? <a href="{{ path('app_register') }}"
                                                                                                                       style="color: #393f81;">Inscris-toi ici !</a></p>
                                             <a href="#!" class="small text-muted">Termes d'utilisations.</a>
